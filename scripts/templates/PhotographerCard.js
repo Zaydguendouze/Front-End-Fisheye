@@ -12,7 +12,7 @@ class PhotographerCard {
 
         const photographerCard = `
             <a>
-                <img src="${this._photographer.portrait}"
+                <img src="assets/photographers/${this._photographer.portrait}"
                 />
             <h2>${this._photographer.name}</h2>
             </a>
