@@ -8,7 +8,7 @@ class PhotographerCard {
     // La fonction qui va permettre de créer les élements
     createPhotographerCard() {
         const $section = document.createElement('article')
-        $section.classList.add('photographer_section')
+        $section.classList.add('photograph-header')
 
         const photographerCard = `
             <a>

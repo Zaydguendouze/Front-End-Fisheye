@@ -1,9 +1,9 @@
 async function getPhotographers() {
   // Récupèration des données Json et donc réponse
-  const photographers = await fetch('./data/photographers.json')
+  const response = await fetch('./data/photographers.json')
   // Extraction des données
-  const data = await photographers.json()
-  // console.log(JSON.stringify(data))
+  const data = await response.json()
+  // console.log(data.photographers)
   
   // Affichage des données extraites
   return { photographers: data.photographers }
@@ -21,7 +21,7 @@ async function displayData(photographers) {
     const photographerModel = photographFactory(photographer)
     // Création des élements dans le DOM
     const userCardDOM = photographerModel.createPhotographeCard()
-    photographersSection.appendChild(userCardDOM)
+    if (photographersSection) photographersSection.appendChild(userCardDOM)
 })
 }
     

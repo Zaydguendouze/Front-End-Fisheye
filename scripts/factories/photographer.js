@@ -30,6 +30,5 @@ function photographFactory(data) {
                     <p>${price}€/jour</p>
                 </div>
             `
-    }
-    
+    }    
 }

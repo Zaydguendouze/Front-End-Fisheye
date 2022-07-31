@@ -16,16 +16,13 @@ class Api {
 }
 
 
-class PhotographerApi extends Api {
-    /**
-     * 
-     * @param {string} url 
-     */
+class ProfileApi extends Api {
+
     constructor(url) {
         super(url)
     }
 
-    async getPhotographers() {
+    async getProfiles() {
         return await this.get()
     }
 }
