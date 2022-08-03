@@ -84,9 +84,18 @@ h2 {
 .custom-select {
     position: relative;
     margin: 50px;
+    margin-left: 110px;
 }
 .custom-select li {
     list-style-type: none;
+}
+
+.tri {
+    font-size: larger;
+    font-weight: 600;
+    top: 20px;
+    position: relative;
+    right: 140px;
 }
 
 .select {
@@ -177,6 +186,7 @@ h2 {
     }
 
 .select_label-placeholder {
+            margin-top: -25px;
             margin-left: -30px;
             height: 69px;
             vertical-align: middle;
