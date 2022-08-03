@@ -19,7 +19,7 @@ function photographFactory(data) {
     function photographerCard(data) {
         const { name, id, city, country, tagline, price, portrait } = data
         return `
-                <a href="/photographer.html?id=${id}" aria-label="Accéder à la page du photographe ${name}" tabindex="0">
+                <a href="photographer.html?id=${id}" aria-label="Accéder à la page du photographe ${name}" tabindex="0">
                     <img src="assets/photographers/${portrait}" alt="Image du photographe ${name}"
                     />
                 <h2>${name}</h2>
