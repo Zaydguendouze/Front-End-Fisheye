@@ -38,7 +38,7 @@ function profile(data) {
     return { data, createProfilePage }
 
     function profileCard(data) {
-        const { name, id, city, country, tagline, price, portrait } = data
+        const { name, city, country, tagline, portrait } = data
         return `  <div class="profile">
             <div class="infos_profil" tabindex="0">
             <h1>${name}</h1>
