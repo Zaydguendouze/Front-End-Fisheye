@@ -1,5 +1,5 @@
 // Fonction pour récupérer les données Json
-// On récupère
+// On récupère les données des photographes et les médias
 async function getPhotographers() {
 
     const response = await fetch('./data/photographers.json')
@@ -13,8 +13,8 @@ async function getPhotographers() {
 // Fonction qui récupère le photographe en fonction de son id
 async function getPhotographersById(id) {
 
-    const profiles = await getPhotographers()
-    const profileSelected = profiles.profiles.find(
+    const photographers = await getPhotographers()
+    const profileSelected = photographers.profiles.find(
         (photographer) => photographer.id === id
     )
 
@@ -39,12 +39,23 @@ function profile(data) {
 
     function profileCard(data) {
         const { name, id, city, country, tagline, price, portrait } = data
-        return `<h2>${name}</h2>`
+        return `  <div class="profile">
+            <div class="infos_profil" tabindex="0">
+            <h1>${name}</h1>
+            </div>
+            <div class="infos_profil_details" tabindex="0">
+            <h2>${city}, ${country}</h2>
+            <p class="tagline">${tagline}</p>
+            </div>
+            </div>
+            <button class='contact_button' tabindex="0"  aria-label="Formulaire de contact, Contactez moi" id='openForm' >Contactez Moi</button>
+            <img src="assets/photographers/${portrait}" alt="portrait du photographe ${name}" tabindex="0">
+            `
     }
     
 }
 
-// Focntion 
+// Focntion qui va afficher les données dans la classe
 async function displayDataProfile(photographer) {
     // Sélection du querySelector pour afficher les données
     const photographersSection = document.querySelector('.photograph-header')
@@ -56,7 +67,7 @@ async function displayDataProfile(photographer) {
 }
     
 async function init() {
-  // Récupèration des données des photographes
+    // Récupèration des données des photographes
     const params = new URLSearchParams(window.location.search)
     let photographId = params.get('id')
     let pIdNumber
@@ -65,10 +76,7 @@ async function init() {
     displayDataProfile(profileSelected)
     
 
-    console.log(photographId)
-
-    // if (photographId) pIdNumber = parseInt(photographId)
-    // displayDataProfile(photographers)
+    // console.log(photographId)
 }
 
 init()

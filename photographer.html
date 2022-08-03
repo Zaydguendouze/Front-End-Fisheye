@@ -7,16 +7,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!--font-awesome from cdnjs-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css">
+
   <title>Fisheye - photographe </title>
 </head>
 
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo" />
+    <a href="./index.html" aria-label="Fisheye, retour à la page d'accueil">
+      <img src="assets/images/logo.png" class="logo" alt="Logo du site Fisheye" />
+    </a>
   </header>
   <main id="main">
-    <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+    <div class="container">
+      <section class="photograph-header"></section>
+      <div class="custom-select">
+        <ul class="select">
+          <li>
+            <input class="select_close" type="radio" name="customselect" id="customselect-close" value="" />
+            <span class="select_label select_label-placeholder">Popularité</span>
+          </li>
+
+          <li class="select_items">
+            <input class="select_expand" type="radio" name="customselect" id="customselect-opener" />
+            <label class="select_closeLabel" for="customselect-close"></label>
+
+            <ul class="select_options">
+              <li class="select_option">
+                <input class="select_input" type="radio" name="customselect" id="customselect-date" />
+                <label class="select_label" for="customselect-date"><span class="border-top">Date</span></label>
+              </li>
+
+              <li class="select_option">
+                <input class="select_input" type="radio" name="customselect" id="customselect-titre" />
+                <label class="select_label" for="customselect-titre"><span class="border-top">Titre</span></label>
+              </li>
+
+            </ul>
+
+            <label class="select_expandLabel" for="customselect-opener"></label>
+          </li>
+        </ul>
+      </div>
     </div>
   </main>
   <div id="contact_modal">
@@ -36,18 +75,6 @@
   </div>
   <!-- Utils -->
   <script src="scripts/utils/contactForm.js"></script>
-
-  <!-- Pages 
-  <script src="scripts/templates/photographerCard.js"></script>
-
-  <script src="scripts/App.js"></script>
-
-  <script src="scripts/api/Api.js"></script>
-
-  <script src="scripts/models/photographersProfile.js"></script>
-
-  <script src="scripts/factories/profilesFactory.js"></script>
-  -->
   <script src="/scripts/pages/photographer.js"></script>
 </body>
 
