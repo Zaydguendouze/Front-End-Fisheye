@@ -147,7 +147,60 @@ async function displayMedia(medias) {
   // mon tableau d'objet
   console.log(medias)
 }
+
+// Fonction pour la bannière (Prix)
+function bannerPrice(photographer) {
+    const banner = document.querySelector('.price')
+
+    // Mise en place de la fonction qui crée la bannière
+    const bannerPhotograph = bannerCardPrice(photographer)
+    // La constante qui contient les deux propriétés
+    const bannerCardDOM = bannerPhotograph.getBannerPrice()
+    banner.appendChild(bannerCardDOM)
+}
+
+// Fonction qui va afficher la bannière 
+function bannerCardPrice(data) {
+
+    function getBannerPrice() {
+
+        const paragraph = document.createElement('p')
+
+        paragraph.innerHTML = bannerPriceTemplate(data)
+
+        return paragraph
+    }
+
+    return { data, getBannerPrice }
     
+}
+  
+// Template pour la bannière
+function bannerPriceTemplate(data) {
+
+    const { price } = data 
+
+    return `<p class="price">${price}€/jour</p>`
+}
+
+// Fonction pour la bannière (Likes)
+function bannerLikes(data) {
+    // init somme
+    let allLikes = 0
+
+    data.map((data) => {
+        allLikes += data.likes
+        return allLikes
+    })
+    console.log(allLikes);
+    const likes = document.querySelector('.likes')
+
+    likes.innerHTML = `<div class="details">
+                            <p>${allLikes}  <i class="fas fa-heart"></i></p>
+                         </div>`
+}
+
+
 async function init() {
     // Récupèration des données des photographes dans l'url
     const params = new URLSearchParams(window.location.search)
@@ -158,6 +211,9 @@ async function init() {
     const { profileSelected, mediaSelected } = await getPhotographersById(pIdNumber)
     displayDataProfile(profileSelected)    
     displayMedia(mediaSelected)
+    // Bannière
+    bannerPrice(profileSelected)
+    bannerLikes(mediaSelected)
     
 
     console.log(pIdNumber)
