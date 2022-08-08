@@ -1,4 +1,4 @@
-function photographFactory(data) {
+export function photographFactory(data) {
     
     function createPhotographeCard() {
         // On crée les élements dans l'article
@@ -32,3 +32,4 @@ function photographFactory(data) {
             `
     }    
 }
+
