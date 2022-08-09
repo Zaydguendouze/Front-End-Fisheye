@@ -22,15 +22,15 @@ async function getPhotographersById(id) {
     (photographer) => photographer.id === id
   );
 
-  // On filtre photographerId dans médias
+  // On filtre photographerId dans médias en utilisant une autre méthode
   // find() retourne un seul objet
-  const mediaSelected = photographers.medias.filter(
-    (media) => media.photographerId === id
-  );
+  const mediaSelected = photographers.medias.filter(function (media) {
+    return media.photographerId === id;
+  });
 
-  // console.log(mediaSelected)
+  //   console.log(mediaSelected);
 
-  // console.log(profileSelected)
+  //   console.log(profileSelected)
 
   return { profileSelected, mediaSelected };
 }
