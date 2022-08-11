@@ -44,6 +44,19 @@ function displayDataProfile(photographer) {
   // Création des élements dans le DOM
   const userCardDOM = photographerModel.createProfilePage();
   if (photographersSection) photographersSection.appendChild(userCardDOM);
+
+  // Bouton pour l'ouverture du formulaire
+  const btnForm = document.getElementById("contact_btn");
+  btnForm.addEventListener("click", () => {
+    launchModal();
+  });
+
+  function launchModal() {
+    const myModal = document.getElementById("contact_modal");
+
+    myModal.style.display = "block";
+    myModal.style.backgroundColor = "rgba(255,255,255,0.8)";
+  }
 }
 
 // Fonction qui va afficher les médias dans la galerie suivant le profil
@@ -58,7 +71,7 @@ function displayMedia(medias) {
     if (galerie) galerie.appendChild(galerieDOM);
   });
   // mon tableau d'objet
-  console.log(medias);
+  // console.log(medias);
 }
 
 // Fonction pour la bannière (Prix)

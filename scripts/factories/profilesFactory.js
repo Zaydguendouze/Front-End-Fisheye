@@ -23,7 +23,7 @@ export function profile(data) {
             <p class="tagline">${tagline}</p>
             </div>
             </div>
-            <button class='contact_button' tabindex="0"  aria-label="Formulaire de contact, Contactez moi" id='openForm' >Contactez Moi</button>
+            <button class="contact_button" tabindex="0" id="contact_btn" aria-label="Formulaire de contact">Contactez Moi</button>
             <img src="assets/photographers/${portrait}" alt="portrait du photographe ${name}" tabindex="0">
             `;
   }

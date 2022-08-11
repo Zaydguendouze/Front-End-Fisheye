@@ -72,24 +72,42 @@
   </main>
 
   <div id="contact_modal">
+
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img class="close" src="assets/icons/close.svg" />
       </header>
 
-      <form>
-        <div>
-          <label>Prénom</label>
-          <input />
+      <form id="form">
+        <div class="formData">
+          <label for="firstname">Prénom</label><br>
+          <input class="text-control" type="text" id="firstName" /><br>
+          <div id="firstname-message" class="message"></div>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <div class="formData">
+          <label for="lastname">Nom</label><br>
+          <input class="text-control" type="text" id="lastName" /><br>
+          <div id="lastname-message" class="message"></div>
+        </div>
+        <div class="formData">
+          <label for="email">Email</label><br>
+          <input class="text-control" type="text" id="email" /><br>
+          <div id="email-message" class="message"></div>
+        </div>
+        <div class="formData">
+          <label for="message">Message</label><br>
+          <textarea class="text-control" type="text" id="message" /></textarea><br>
+          <div id="msg-message" class="message"></div>
+        </div>
+        <button class="contact_button_submit" type="submit">Envoyer</button>
       </form>
 
     </div>
   </div>
   <!-- Utils -->
   <script type="module" src="scripts/pages/photographer.js"></script>
+  <script type="module" src="scripts/utils/contactForm.js"></script>
 </body>
 
 </html>
