@@ -96,7 +96,12 @@ function emailValid() {
 // message
 formData[3].addEventListener("input", messageValid);
 function messageValid() {
-  if (messageRegex.test(message.value) == false) {
+  if (message.value.trim() == "" || message.value.length <= 2) {
+    let messageError = document.getElementById("msg-message");
+    messageError.innerHTML = messagesErrors.msg;
+
+    return false;
+  } else if (messageRegex.test(message.value) == false) {
     let messageError = document.getElementById("msg-message");
     messageError.innerHTML = messagesErrors.msg;
 
