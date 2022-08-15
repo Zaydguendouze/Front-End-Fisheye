@@ -62,7 +62,7 @@ export function galerieCard(data) {
             
             <div class="infos">
                 <p aria-label="${title}">${title}</p>
-                <p class="mediaLike" aria-label="${likes} coeur">${likes}<i class="fas fa-heart" tabindex="0"></i></p>
+                <button onclick="console.log(event.currentTarget.getAttribute('data-liked'))" data-liked="false" aria-label="${likes} coeur">${likes}<i class="fas fa-heart" tabindex="0"></i></button>
             </div>
             `;
     } else if (video) {
@@ -72,7 +72,7 @@ export function galerieCard(data) {
 
             <div class="infos">
                 <p aria-label="${title}">${title}</p>
-                <p class="mediaLike" aria-label="${likes} coeur">${likes}<i class="fas fa-heart" tabindex="0"></i></p>
+                <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart" tabindex="0"></i></p>
             </div>
             `;
     }

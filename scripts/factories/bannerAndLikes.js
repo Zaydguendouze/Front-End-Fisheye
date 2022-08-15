@@ -36,6 +36,6 @@ export function bannerLikes(data) {
 
   if (likes)
     likes.innerHTML = `<div class="details" tabindex="0">
-                            <p>${allLikes}<i class="fas fa-heart"></i></p>
+                            <p>${allLikes} <i class="fas fa-heart"></i></p>
                          </div>`;
 }

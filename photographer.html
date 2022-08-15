@@ -33,7 +33,7 @@
           <span class="tri">Trier par</span>
           <li>
             <input class="select_close" type="radio" name="customselect" id="customselect-close" value="" />
-            <span class="select_label select_label-placeholder" aria-label="Filtre par Popularité"
+            <span class="select_label select_label-placeholder popularite" aria-label="Filtre par Popularité"
               tabindex="0">Popularité</span>
           </li>
 
@@ -105,9 +105,17 @@
 
     </div>
   </div>
+
+  <div class="lightbox">
+    <button class="lightbox__close">Fermer</button>
+    <button class="lightbox__next">Suivant</button>
+    <button class="lightbox__prev">Précédent</button>
+    <div class="lightbox__container"></div>
+  </div>
   <!-- Utils -->
   <script type="module" src="scripts/pages/photographer.js"></script>
   <script type="module" src="scripts/utils/contactForm.js"></script>
+  <script type="module" src="scripts/factories/lightbox.js"></script>
 </body>
 
 </html>

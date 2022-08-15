@@ -35,7 +35,7 @@ async function getPhotographersById(id) {
   return { profileSelected, mediaSelected };
 }
 
-// Focntion qui va afficher les données dans la classe
+// Focntion qui va afficher les données dans le header
 function displayDataProfile(photographer) {
   // Sélection du querySelector pour afficher les données
   const photographersSection = document.querySelector(".photograph-header");
@@ -47,21 +47,38 @@ function displayDataProfile(photographer) {
 
   // Bouton pour l'ouverture du formulaire
   const btnForm = document.getElementById("contact_btn");
-  btnForm.addEventListener("click", () => {
-    launchModal();
-  });
+  if (btnForm)
+    btnForm.addEventListener("click", () => {
+      launchModal();
+    });
 
   function launchModal() {
     const myModal = document.getElementById("contact_modal");
 
-    myModal.style.display = "block";
-    myModal.style.backgroundColor = "rgba(255,255,255,0.8)";
+    if (myModal) {
+      myModal.style.display = "block";
+      myModal.style.backgroundColor = "rgba(255,255,255,0.8)";
+    }
   }
 }
 
 // Fonction qui va afficher les médias dans la galerie suivant le profil
 function displayMedia(medias) {
   const galerie = document.querySelector(".galerie");
+
+  function addLikes(currentTarget) {
+    console.log("test");
+
+    // if element.getAttribute
+
+    // Get l'id de l'element sur lequel on clique
+    // Get value de l'element
+    // Incrémenter de 1 au premier clique
+    // Injecter l'incrémentation dans le DOM (value de button)
+    // Get by Id, sélectionner les likes au total
+    // Incrémenter les likes au total de 1 et changer le DOM
+    // Au deuxième clique décrémenter de 1, au moment du 1er clique, injecter au meme moment data-liked => true ou false
+  }
 
   // Pour chaque média, afficher suivant la fonction galerieCard
   medias.forEach((media) => {

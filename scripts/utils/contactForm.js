@@ -8,7 +8,7 @@ const submitBtn = document.querySelector(".contact_button");
 
 const form = document.getElementById("form");
 const firstName = document.getElementById("firstName");
-const flastName = document.getElementById("lastName");
+const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const message = document.getElementById("message");
 
@@ -21,8 +21,8 @@ const messageRegex = /^[a-zA-Z-\s]+$/;
 const messagesErrors = {
   lastNameMsg1: "Le Nom doit comporter au moins deux caractères",
   lastNameMsg2: "Le Nom doit être composé de lettres",
-  firstNameMsg1: "Le Nom doit comporter au moins deux caractères",
-  firstNameMsg2: "Le Nom doit être composé de lettres",
+  firstNameMsg1: "Le Prénom doit comporter au moins deux caractères",
+  firstNameMsg2: "Le Prénom doit être composé de lettres",
   emailMsg: "Veuillez entrer une adresse mail valide",
   msg: "Veuillez entrer du texte",
 };
