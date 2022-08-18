@@ -58,21 +58,21 @@ export function galerieCard(data) {
     if (image) {
       return ` 
             
-                <img src="assets/images/${image}"  alt="photographie ${title}" tabindex="0"> 
+                <img class="media" src="assets/images/${image}"  alt="photographie ${title}" tabindex="0"> 
             
             <div class="infos">
                 <p aria-label="${title}">${title}</p>
-                <button onclick="console.log(event.currentTarget.getAttribute('data-liked'))" data-liked="false" aria-label="${likes} coeur">${likes}<i class="fas fa-heart" tabindex="0"></i></button>
+                <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart media-liked" tabindex="0"></i></p>
             </div>
             `;
     } else if (video) {
       return ` 
             
-                <video controls><source src="assets/images/${video}"></video tabindex="0">
+                <video class="media" controls><source src="assets/images/${video}"></video tabindex="0">
 
             <div class="infos">
                 <p aria-label="${title}">${title}</p>
-                <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart" tabindex="0"></i></p>
+                <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart media-liked" tabindex="0"></i></p>
             </div>
             `;
     }

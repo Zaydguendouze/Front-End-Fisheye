@@ -66,20 +66,6 @@ function displayDataProfile(photographer) {
 function displayMedia(medias) {
   const galerie = document.querySelector(".galerie");
 
-  function addLikes(currentTarget) {
-    console.log("test");
-
-    // if element.getAttribute
-
-    // Get l'id de l'element sur lequel on clique
-    // Get value de l'element
-    // Incrémenter de 1 au premier clique
-    // Injecter l'incrémentation dans le DOM (value de button)
-    // Get by Id, sélectionner les likes au total
-    // Incrémenter les likes au total de 1 et changer le DOM
-    // Au deuxième clique décrémenter de 1, au moment du 1er clique, injecter au meme moment data-liked => true ou false
-  }
-
   // Pour chaque média, afficher suivant la fonction galerieCard
   medias.forEach((media) => {
     const galerieModel = galerieCard(media);
