@@ -1,7 +1,7 @@
 export function lightbox(data) {
   // Création de la div de la lightbox
   const lightbox = document.getElementById("lightbox");
-  const closeBtn = document.querySelector(".lightbox_close");
+  const closeBtn = document.querySelectorAll(".lightbox_close");
   const nextBtn = document.querySelector(".lightbox_next");
   const prevBtn = document.querySelector(".lightbox_prev");
   const lightboxText = document.querySelector(".lightbox_text");
@@ -16,8 +16,8 @@ export function lightbox(data) {
 
   const images = document.querySelectorAll("article img");
 
-  // console.log(lightbox);
-  const videos = document.querySelectorAll(".videos");
+  console.log(lightbox);
+  const videos = document.querySelectorAll("article video");
 
   // console.log(images);
 
@@ -33,10 +33,6 @@ export function lightbox(data) {
 
       lightbox.appendChild(img);
 
-      closeBtn.onclick = function () {
-        closeLightboxWithImg();
-      };
-
       return imageId;
     });
   });
@@ -45,47 +41,24 @@ export function lightbox(data) {
     video.addEventListener("click", (e) => {
       lightbox.classList.add("active");
 
-      const vdo = document.createElement("video");
+      const video = document.createElement("video");
 
-      let src = document.querySelector("video").src;
+      video.src = video.src;
 
-      vdo.src = src;
+      video.setAttribute("id", "videoId");
 
-      vdo.setAttribute("id", "videoId");
-
-      lightbox.appendChild(vdo);
-
-      closeBtn.onclick = function () {
-        closeLightboxWithVdo();
-      };
-
-      console.log(src);
+      lightbox.appendChild(video);
 
       return videoId;
     });
   });
 
-  // closeBtn.addEventListener("click", closeLightbox);
+  closeBtn.forEach((btn) => btn.addEventListener("click", closeLightbox));
 
-  // closeBtn.addEventListener("click", () => {
-  //   lightbox.classList.remove("active");
-  // });
-
-  // closeBtn.addEventListener("click", closeLightbox);
-
-  // closeBtn.addEventListener("click", closeLightboxWithVdo);
-  // closeBtn.addEventListener("click", closeLightboxWithImg);
-
-  function closeLightboxWithImg() {
-    // if (e.target !== e.currentTarget) return;
+  function closeLightbox(e) {
+    if (e.target !== e.currentTarget) return;
     lightbox.classList.remove("active");
     removeImgDom("imageId");
-  }
-
-  function closeLightboxWithVdo(e) {
-    // if (e.target !== e.currentTarget) return;
-    lightbox.classList.remove("active");
-    // removeImgDom("imageId");
     removeVideoDom("videoId");
   }
 
@@ -104,7 +77,7 @@ export function lightbox(data) {
 
   // const mediaOnLightbox = parseInt(media.parentElement.dataset.id);
 
-  // console.log(data);
+  // console.log(media);
 
   // let mediaSelect = 0;
   // mediaSelect = medias.findIndex((element) => element.id === mediaOnLightbox);
@@ -115,5 +88,5 @@ export function lightbox(data) {
   //   mediaSelect = medias - 1;
   // }
 
-  // console.log(images);
+  console.log(images);
 }

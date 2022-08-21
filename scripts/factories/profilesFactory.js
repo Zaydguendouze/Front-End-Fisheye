@@ -68,7 +68,7 @@ export function galerieCard(data) {
     } else if (video) {
       return ` 
             
-                <video controls><source src="assets/images/${video}"></video tabindex="0">
+                <video class="videos" controls src="assets/images/${video}"></video tabindex="0">
 
             <div class="infos">
                 <p aria-label="${title}">${title}</p>

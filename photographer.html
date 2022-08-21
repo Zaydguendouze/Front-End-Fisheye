@@ -102,9 +102,12 @@
 
   <!-- lightbox -->
   <div id="lightbox">
-    <button aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"></i></button>
-    <button aria-label="Précédent"><i class="fa-solid fa-angle-left lightbox_prev"></i></button>
-    <button aria-label="Suivant"><i class="fa-solid fa-angle-right lightbox_next"></i></button>
+    <button tabindex="-1" aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"
+        tabindex="10"></i></button>
+    <button tabindex="-1" aria-label="Précédent"><i class="fa-solid fa-angle-left lightbox_prev"
+        tabindex="10"></i></button>
+    <button tabindex="0" aria-label="Suivant"><i class="fa-solid fa-angle-right lightbox_next"
+        tabindex="10"></i></button>
     <div class="lightbox_text"></div>
   </div>
 

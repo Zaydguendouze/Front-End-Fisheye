@@ -412,12 +412,38 @@ article video {
 }
 
 .lightbox_close{
-  width: 24px;
+  width: 100px;
   height: 40px;
   position: fixed;
   top: 15px;
   right: 15px;
-  z-index: 20;
+  color: #901C1C;
+  font-size: 100px;
+  z-index: 100;
+}
+
+.lightbox_next{  
+  width: 100px;
+  height: 40px;
+  position: fixed;
+  right: 15px;
+  color: #901C1C;
+  font-size: 100px;
+}
+
+.lightbox_prev {
+  width: 100px;
+  height: 40px;
+  position: fixed;
+  left: 15px;
+  color: #901C1C;
+  font-size: 100px;
+}
+
+#lightbox button {
+  /* display: none; */
+  background: none;
+  border: none;
 }
 
 /* LIGHTBOX */
