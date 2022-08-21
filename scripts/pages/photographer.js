@@ -1,5 +1,7 @@
 import { profile, galerieCard } from "../factories/profilesFactory.js";
 import { bannerCardPrice, bannerLikes } from "../factories/bannerAndLikes.js";
+import { lightbox } from "../factories/lightbox.js";
+import { sorts } from "../factories/sorts.js";
 
 // Fonction pour récupérer les données Json
 // On récupère les données des photographes et les médias
@@ -103,6 +105,10 @@ async function init() {
   // Bannière
   bannerPrice(profileSelected);
   bannerLikes(mediaSelected);
+  // Lightbox
+  lightbox(profileSelected);
+  // Sorts
+  sorts(mediaSelected);
 
   //   console.log(pIdNumber);
 }

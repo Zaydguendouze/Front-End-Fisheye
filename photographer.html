@@ -7,14 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <!--font-awesome from cdnjs-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <script src="https://kit.fontawesome.com/cb9e73c4a4.js" crossorigin="anonymous"></script>
 
   <title>Fisheye - photographe </title>
 </head>
@@ -106,12 +100,14 @@
     </div>
   </div>
 
-  <div class="lightbox">
-    <button class="lightbox__close">Fermer</button>
-    <button class="lightbox__next">Suivant</button>
-    <button class="lightbox__prev">Précédent</button>
-    <div class="lightbox__container"></div>
+  <!-- lightbox -->
+  <div id="lightbox">
+    <button aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"></i></button>
+    <button aria-label="Précédent"><i class="fa-solid fa-angle-left lightbox_prev"></i></button>
+    <button aria-label="Suivant"><i class="fa-solid fa-angle-right lightbox_next"></i></button>
+    <div class="lightbox_text"></div>
   </div>
+
   <!-- Utils -->
   <script type="module" src="scripts/pages/photographer.js"></script>
   <script type="module" src="scripts/utils/contactForm.js"></script>
