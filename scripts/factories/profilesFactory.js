@@ -58,20 +58,20 @@ export function galerieCard(data) {
     if (image) {
       return ` 
             
-                <img src="assets/images/${image}"  alt="photographie ${title}" tabindex="0"> 
+                <img id="medias" src="assets/images/${image}"  alt="photographie ${title}" tabindex="0"> 
             
             <div class="infos">
-                <p aria-label="${title}">${title}</p>
+                <p class="title" aria-label="${title}">${title}</p>
                 <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart media-liked" tabindex="0"></i></p>
             </div>
             `;
     } else if (video) {
       return ` 
             
-                <video class="videos" controls src="assets/images/${video}"></video tabindex="0">
+                <video id="medias" controls src="assets/images/${video}"></video tabindex="0">
 
             <div class="infos">
-                <p aria-label="${title}">${title}</p>
+                <p class="title"  aria-label="${title}">${title}</p>
                 <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart media-liked" tabindex="0"></i></p>
             </div>
             `;

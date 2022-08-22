@@ -1,37 +1,43 @@
-export function lightbox(data) {
+export function lightbox() {
   // Création de la div de la lightbox
   const lightbox = document.getElementById("lightbox");
   const closeBtn = document.querySelector(".lightbox_close");
   const nextBtn = document.querySelector(".lightbox_next");
   const prevBtn = document.querySelector(".lightbox_prev");
-  const lightboxText = document.querySelector(".lightbox_text");
-
-  // Création de l'id dans la div pour le css
-  // lightbox.id = "lightbox";
-  // lightbox.classList.add = "btn-next";
-  // lightbox.classList.add = "btn-prev";
-
-  // Ajout de l'enfant lightbox au body donc la div
-  // document.body.appendChild(lightbox);
+  let lightboxText = document.getElementById("caption");
+  let textGalerie = document.querySelectorAll(".infos p");
 
   const images = document.querySelectorAll("article img");
+  const videos = document.querySelectorAll("article video");
 
-  // console.log(lightbox);
-  const videos = document.querySelectorAll(".videos");
+  // let src = document.querySelector("video, img").src;
 
-  // console.log(images);
+  var mediaLightbox = document.getElementById("imageId, videoId");
+
+  // console.log(lightboxText);
 
   images.forEach((image) => {
     image.addEventListener("click", (e) => {
       lightbox.classList.add("active");
 
       const img = document.createElement("img");
+      const txt = document.createElement("p");
 
       img.src = image.src;
 
       img.setAttribute("id", "imageId");
 
       lightbox.appendChild(img);
+
+      txt.innerText = image.nextElementSibling.firstElementChild.innerHTML;
+
+      txt.setAttribute("id", "caption");
+
+      lightbox.appendChild(txt);
+
+      // lightboxText.innerHTML = textGalerie;
+
+      // console.log(image);
 
       closeBtn.onclick = function () {
         closeLightboxWithImg();
@@ -46,52 +52,49 @@ export function lightbox(data) {
       lightbox.classList.add("active");
 
       const vdo = document.createElement("video");
+      const txt = document.createElement("p");
 
       let src = document.querySelector("video").src;
 
       vdo.src = src;
 
       vdo.setAttribute("id", "videoId");
+      vdo.autoplay = true;
+      vdo.controls = true;
 
       lightbox.appendChild(vdo);
+
+      txt.innerText = video.nextElementSibling.firstElementChild.innerHTML;
+
+      txt.setAttribute("id", "caption");
+
+      lightbox.appendChild(txt);
 
       closeBtn.onclick = function () {
         closeLightboxWithVdo();
       };
 
-      console.log(src);
+      // console.log(src);
 
       return videoId;
     });
   });
 
-  // closeBtn.addEventListener("click", closeLightbox);
-
-  // closeBtn.addEventListener("click", () => {
-  //   lightbox.classList.remove("active");
-  // });
-
-  // closeBtn.addEventListener("click", closeLightbox);
-
-  // closeBtn.addEventListener("click", closeLightboxWithVdo);
-  // closeBtn.addEventListener("click", closeLightboxWithImg);
-
-  function closeLightboxWithImg() {
-    // if (e.target !== e.currentTarget) return;
+  function closeLightboxWithImg(e) {
     lightbox.classList.remove("active");
     removeImgDom("imageId");
+    removeTextDom("caption");
   }
 
   function closeLightboxWithVdo(e) {
-    // if (e.target !== e.currentTarget) return;
     lightbox.classList.remove("active");
-    // removeImgDom("imageId");
     removeVideoDom("videoId");
+    removeTextDom("caption");
   }
 
   function removeImgDom(imageDom) {
     var imageDom = document.getElementById("imageId");
-    return imageDom.parentNode.removeChild(imageDom);
+    imageDom.parentNode.removeChild(imageDom);
   }
 
   function removeVideoDom(videoDom) {
@@ -99,21 +102,14 @@ export function lightbox(data) {
     return videoDom.parentNode.removeChild(videoDom);
   }
 
+  function removeTextDom(lightboxText) {
+    var lightboxText = document.getElementById("caption");
+    lightboxText.parentNode.removeChild(lightboxText);
+  }
+
+  // console.log(lightboxText.parentNode.removeChild(lightboxText));
   // NEXT
   // eventlistener sur les boutons
 
-  // const mediaOnLightbox = parseInt(media.parentElement.dataset.id);
-
-  // console.log(data);
-
-  // let mediaSelect = 0;
-  // mediaSelect = medias.findIndex((element) => element.id === mediaOnLightbox);
-
-  // if (mediaSelect === 0) {
-  //   mediaSelect = medias.length - 1;
-  // } else {
-  //   mediaSelect = medias - 1;
-  // }
-
-  // console.log(images);
+  // console.log(medias);
 }
