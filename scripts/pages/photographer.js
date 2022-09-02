@@ -1,7 +1,6 @@
 import { profile, galerieCard } from "../factories/profilesFactory.js";
 import { bannerCardPrice, bannerLikes } from "../factories/bannerAndLikes.js";
 import { lightbox } from "../factories/lightbox.js";
-import { sorts } from "../factories/sorts.js";
 
 // Fonction pour récupérer les données Json
 // On récupère les données des photographes et les médias
@@ -75,8 +74,130 @@ function displayMedia(medias) {
 
     if (galerie) galerie.appendChild(galerieDOM);
   });
-  // mon tableau d'objet
-  // console.log(medias);
+}
+
+const triPopularite = document.querySelector(".popularite");
+const triDate = document.querySelector(".date");
+const triTitre = document.querySelector(".titre");
+const close = document.querySelector(".select_closeLabel");
+const open = document.querySelector(".select_label");
+const select = document.querySelector(".select");
+const expand = document.querySelector(".select_expand");
+
+open.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    console.log(expand);
+    openExpand();
+  }
+});
+
+open.addEventListener("keyup", (e) => {
+  if (e.key === "Escape") {
+    console.log(expand);
+    closeExpand();
+  }
+});
+
+function openExpand() {
+  expand.style.display = "none";
+}
+
+function customSelect() {
+  select.style.marginBottom = "140px";
+}
+
+function sortPopular(medias) {
+  medias.sort((a, b) => {
+    if (a.likes < b.likes) {
+      return 1;
+    }
+    if (a.likes > b.likes) {
+      return -1;
+    }
+    return 0;
+  });
+}
+
+function sortDate(medias) {
+  medias.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    }
+    if (a.date > b.date) {
+      return -1;
+    }
+    return 0;
+  });
+}
+
+function sortTitre(medias) {
+  medias.sort((a, b) => {
+    if (a.title > b.title) {
+      return 1;
+    }
+    if (a.title < b.title) {
+      return -1;
+    }
+    return 0;
+  });
+}
+
+function sorts(medias) {
+  triTitre.addEventListener("click", () => titleSelected());
+  function titleSelected() {
+    customSelect();
+    triPopularite.textContent = "Titre";
+    // triDate.textContent = "Popularité";
+    triTitre.textContent = "Popularité";
+    sortTitre(medias);
+    const galerie = document.querySelector(".galerie");
+    galerie.innerHTML = "";
+    displayMedia(medias);
+    lightbox(medias);
+    bannerLikes(medias);
+    console.log("test");
+  }
+  triTitre.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      titleSelected();
+    }
+  });
+  triDate.addEventListener("click", () => dateSelected());
+  function dateSelected() {
+    customSelect();
+    triPopularite.textContent = "Popularité";
+    triDate.textContent = "Date";
+    triTitre.textContent = "Titre";
+    sortDate(medias);
+    const galerie = document.querySelector(".galerie");
+    galerie.innerHTML = "";
+    displayMedia(medias);
+    lightbox(medias);
+    bannerLikes(medias);
+  }
+  triDate.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      dateSelected();
+    }
+  });
+  triPopularite.addEventListener("click", () => popularSelected());
+  function popularSelected() {
+    // customSelect();
+    triPopularite.textContent = "Popularité";
+    triDate.textContent = "Date";
+    triTitre.textContent = "Titre";
+    sortPopular(medias);
+    const galerie = document.querySelector(".galerie");
+    galerie.innerHTML = "";
+    displayMedia(medias);
+    lightbox(medias);
+    bannerLikes(medias);
+  }
+  triPopularite.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      popularSelected();
+    }
+  });
 }
 
 // Fonction pour la bannière (Prix)
@@ -106,7 +227,7 @@ async function init() {
   bannerPrice(profileSelected);
   bannerLikes(mediaSelected);
   // Lightbox
-  lightbox(profileSelected);
+  lightbox(mediaSelected);
   // Sorts
   sorts(mediaSelected);
 

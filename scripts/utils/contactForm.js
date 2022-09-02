@@ -40,6 +40,12 @@ function closeModal() {
   if (form) form.reset();
 }
 
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
+
 // formData[] pour ne pas les lister directement dans le HTML
 // lastName
 formData[0].addEventListener("input", lastNameValid);

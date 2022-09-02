@@ -45,6 +45,11 @@ export function bannerLikes(data) {
   // On séléctionne tous les éléments "hearts"
   hearts.forEach((element) => {
     element.addEventListener("click", addLikes);
+    element.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") {
+        addLikes();
+      }
+    });
 
     // La fonction va ajouter 1 like au total à chaque clique
     function addLikes() {

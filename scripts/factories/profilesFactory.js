@@ -52,13 +52,13 @@ export function galerieCard(data) {
 
   // Fonction qui va afficher les données
   function mediaTemplate(data) {
-    const { image, title, likes, video } = data;
+    const { image, title, likes, video, id } = data;
 
     // Séparation selon image ou vidéo dans les médias
     if (image) {
       return ` 
             
-                <img id="medias" src="assets/images/${image}"  alt="photographie ${title}" tabindex="0"> 
+                <img title="${title}" id="${id}" src="assets/images/${image}"  alt="${title}" tabindex="0"> 
             
             <div class="infos">
                 <p class="title" aria-label="${title}">${title}</p>
@@ -68,7 +68,7 @@ export function galerieCard(data) {
     } else if (video) {
       return ` 
             
-                <video id="medias" controls src="assets/images/${video}"></video tabindex="0">
+                <video title="${title}" id="${id}" controls src="assets/images/${video}" alt="${title}"></video tabindex="0">
 
             <div class="infos">
                 <p class="title"  aria-label="${title}">${title}</p>

@@ -26,25 +26,25 @@
         <ul class="select">
           <span class="tri">Trier par</span>
           <li>
-            <input class="select_close" type="radio" name="customselect" id="customselect-close" value="" />
-            <span class="select_label select_label-placeholder popularite" aria-label="Filtre par Popularité"
-              tabindex="0">Popularité</span>
+            <input class="select_close popularite" type="radio" name="customselect" id="customselect-close" value="" />
+            <span class="select_label select_label-placeholder" aria-label="Filtre par Popularité">Popularité</span>
           </li>
 
           <li class="select_items">
-            <input class="select_expand" type="radio" name="customselect" id="customselect-opener" />
-            <label class="select_closeLabel" for="customselect-close"></label>
+            <input tabindex="0" aria-label="ouverture" class="select_expand" type="radio" name="customselect"
+              id="customselect-opener" />
+            <label aria-label="fermeture" class="select_closeLabel" for="customselect-close"></label>
 
             <ul class="select_options">
               <li class="select_option">
                 <input class="select_input" type="radio" name="customselect" id="customselect-date" />
-                <label class="select_label" for="customselect-date"><span class="border-top"
+                <label class="select_label date" for="customselect-date"><span class="border-top"
                     aria-label="Filtre par Date" tabindex="0">Date</span></label>
               </li>
 
               <li class="select_option">
                 <input class="select_input" type="radio" name="customselect" id="customselect-titre" />
-                <label class="select_label" for="customselect-titre"><span class="border-top"
+                <label class="select_label titre" for="customselect-titre"><span class="border-top"
                     aria-label="Filtre par Titre" tabindex="0">Titre</span></label>
               </li>
 
@@ -102,13 +102,12 @@
 
   <!-- lightbox -->
   <div id="lightbox">
-    <button tabindex="-1" aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"
+    <button tabindex="0" aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"
         tabindex="10"></i></button>
-    <button tabindex="-1" aria-label="Précédent"><i onclick="plusSlides(-1)"
-        class="fa-solid fa-angle-left lightbox_prev" tabindex="10"></i></button>
-    <button tabindex="0" aria-label="Suivant"><i onclick="plusSlides(1)" class="fa-solid fa-angle-right lightbox_next"
+    <button tabindex="0" aria-label="Précédent"><i class="fa-solid fa-angle-left lightbox_prev"
         tabindex="10"></i></button>
-  </div>
+    <button tabindex="0" aria-label="Suivant"><i class="fa-solid fa-angle-right lightbox_next"
+        tabindex="10"></i></button>
   </div>
 
   <!-- Utils -->
