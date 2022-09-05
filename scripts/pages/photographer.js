@@ -79,35 +79,15 @@ function displayMedia(medias) {
 const triPopularite = document.querySelector(".popularite");
 const triDate = document.querySelector(".date");
 const triTitre = document.querySelector(".titre");
-const close = document.querySelector(".select_closeLabel");
-const open = document.querySelector(".select_label");
 const select = document.querySelector(".select");
-const expand = document.querySelector(".select_expandLabel");
-
-open.addEventListener("keyup", (e) => {
-  if (e.key === "Enter") {
-    console.log(expand);
-    openExpand();
-  }
-});
-
-open.addEventListener("keyup", (e) => {
-  if (e.key === "Escape") {
-    console.log(expand);
-    closeExpand();
-  }
-});
-
-function openExpand() {
-  expand.style.display = "block";
-}
-
-function closeExpand() {
-  expand.style.display = "none";
-}
 
 function customSelect() {
   select.style.marginBottom = "140px";
+}
+
+function closeLightboxWithSort() {
+  const lightboxContainer = document.getElementById("lightbox");
+  lightboxContainer.removeAttribute("img", "video", "p");
 }
 
 function sortPopular(medias) {
@@ -149,6 +129,9 @@ function sortTitre(medias) {
 function sorts(medias) {
   triTitre.addEventListener("click", () => titleSelected());
   function titleSelected() {
+    if (dateSelected() || popularSelected()) {
+      closeLightboxWithSort();
+    }
     customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
@@ -167,6 +150,10 @@ function sorts(medias) {
   });
   triDate.addEventListener("click", () => dateSelected());
   function dateSelected() {
+    if (titleSelected() || popularSelected()) {
+      closeLightboxWithSort();
+    }
+    closeLightboxWithSort();
     customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
@@ -185,6 +172,10 @@ function sorts(medias) {
   });
   triPopularite.addEventListener("click", () => popularSelected());
   function popularSelected() {
+    if (dateSelected() || titleSelected()) {
+      closeLightboxWithSort();
+    }
+    closeLightboxWithSort();
     customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
