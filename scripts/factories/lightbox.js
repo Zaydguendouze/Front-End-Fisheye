@@ -1,53 +1,18 @@
 export function lightbox(data) {
   const lightboxContainer = document.getElementById("lightbox");
-  // const closeBtn = document.querySelector(".lightbox_close");
   const nextBtn = document.querySelector(".lightbox_next");
   const prevBtn = document.querySelector(".lightbox_prev");
 
-  const images = document.querySelector(".galerie img");
-  const videos = document.querySelectorAll("article video");
   const medias = document.querySelectorAll(
     ".galerie article img, article video"
   );
 
   let img = document.createElement("img");
   let txt = document.createElement("p");
-
   let vdo = document.createElement("video");
+
   let src = "";
   let title = "";
-
-  // let Id = 0;
-
-  // const filteredObj = data.filter((obj) => obj.id === 625025343)[0];
-
-  // const allIds = data.map((o) => o.id);
-
-  // // ... creation d'une copie de allIds
-  // const sortedIds = [...allIds].sort((x, y) => y - x);
-
-  // console.log("sortedIds", sortedIds);
-
-  // console.log("allIds", allIds);
-
-  // const dataTitleAlt = document.querySelector(".galerie img, video").alt;
-
-  // console.log(data.map((o) => o.title));
-
-  // function txtImg() {
-  //   for (var i = 0; i < medias.length; i++) {
-  //     var caption = document.createElement("p");
-  //     caption.textContent = medias[i].dataset.title;
-  //   }
-  // }
-
-  // console.log(data.sort((a, b) => (a.id < b.id ? -1 : Number(a.id > b.id))));
-
-  // const mediaSelected = data.sort((a, b) =>
-  //   a.id < b.id ? -1 : Number(a.id > b.id)
-  // );
-
-  // console.log(mediaSelected);
 
   medias.forEach((media) => {
     const openLightbox = () => {
@@ -57,26 +22,16 @@ export function lightbox(data) {
 
       let index = 0;
       index = data.findIndex((element) => element.id === currentMedia);
-      // console.log(typeof currentMedia);
-      // console.log("index", index);
-      // console.log("media en cours", currentMedia);
 
-      // id = data.findIndex((element) => element.data === data);
       src = media.src;
       title = media.title;
-      // console.log("index", id);
-      // console.log("titre", title);
-      // console.log("source", src);
 
       if (media.src.includes("mp4")) {
-        // const vdo = document.createElement("video");
-        // const txt = document.createElement("p");
-
         vdo.src = src;
 
         vdo.setAttribute("id", "videoId");
         vdo.autoplay = true;
-        vdo.controls = false;
+        vdo.controls = true;
 
         lightboxContainer.appendChild(vdo);
 
@@ -89,12 +44,7 @@ export function lightbox(data) {
         closeBtn.onclick = function () {
           closeLightboxWithVdo();
         };
-
-        // return videoId;
       } else {
-        // const img = document.createElement("img");
-        // const txt = document.createElement("p");
-
         img.src = src;
 
         img.setAttribute("id", "imageId");
@@ -111,55 +61,44 @@ export function lightbox(data) {
         closeBtn.onclick = function () {
           closeLightboxWithImg();
         };
-
-        // return imageId;
       }
 
       const next = () => {
-        // let nextIndex = index % medias.length;
-        // if (medias.length == nextIndex + 1) {
-        //   nextIndex = -1;
-        // }
         console.log("-----");
-        let image = document.getElementById("imageId");
-        let text = document.getElementById("caption");
-        let video = document.querySelector("video");
-        // lightboxContainer.appendChild([nextIndex + 1]);
+        const image = document.getElementById("imageId");
+        const text = document.getElementById("caption");
+        const video = document.getElementById("videoId");
+
         if (index === medias.length - 1) {
-          // img.src = medias[index].src;
           index = 0;
         } else {
           index = index + 1;
         }
+
         src = medias[index].src;
         title = medias[index].title;
 
-        console.log("index", index);
-        console.log("titre", title);
-        console.log("source", src);
-        console.log("image", image);
-
-        console.log("video", video);
-
         if (medias[index].src.includes("mp4")) {
-          video.src = src;
-          // video.setAttribute("controls");
-          video.autoplay = false;
-          video.controls = true;
+          lightboxContainer.appendChild(vdo);
+          vdo.src = src;
+          vdo.autoplay = false;
+          vdo.controls = true;
+          lightboxContainer.appendChild(txt);
           text.innerText = title;
         }
-        if (!medias[index].src.includes("mp4")) {
-          image.src = src;
-          text.innerText = title;
+        if (medias[index].src.includes("jpg")) {
+          vdo.remove(video);
         }
-        // video.src = src;
-        // vdo.autoplay = false;
-        // vdo.controls = true;
-        // }
-        // if (index > lightboxText.length - 1) index = 0;
-        // txt.innerText = lightboxText[index].firstChild.textContent;
-        // console.log("nextIndex", nextIndex);
-        // console.log("media en cours", currentMedia);
+
+        if (medias[index].src.includes("jpg")) {
+          lightboxContainer.appendChild(img);
+          img.src = src;
+          lightboxContainer.appendChild(txt);
+          txt.innerText = title;
+        }
+        if (medias[index].src.includes("mp4")) {
+          img.remove(image);
+        }
       };
 
       const prev = () => {
@@ -173,18 +112,28 @@ export function lightbox(data) {
 
         let image = document.getElementById("imageId");
         let text = document.getElementById("caption");
-        let video = document.querySelector("video");
+        let video = document.getElementById("videoId");
 
         if (medias[index].src.includes("mp4")) {
-          video.src = src;
-          // video.setAttribute("controls", "controls");
-          video.autoplay = false;
-          video.controls = true;
+          lightboxContainer.appendChild(vdo);
+          vdo.src = src;
+          vdo.autoplay = false;
+          vdo.controls = true;
+          lightboxContainer.appendChild(txt);
           text.innerText = title;
         }
-        if (!medias[index].src.includes("mp4")) {
-          image.src = src;
-          text.innerText = title;
+        if (medias[index].src.includes("jpg")) {
+          vdo.remove(video);
+        }
+
+        if (medias[index].src.includes("jpg")) {
+          lightboxContainer.appendChild(img);
+          img.src = src;
+          lightboxContainer.appendChild(txt);
+          txt.innerText = title;
+        }
+        if (medias[index].src.includes("mp4")) {
+          img.remove(image);
         }
       };
 

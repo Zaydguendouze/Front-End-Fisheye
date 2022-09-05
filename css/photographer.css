@@ -231,7 +231,6 @@ h2 {
         display: block;
         height: 100%;
         width: 85%;
-        border-top: 1px solid #fff;
     }
 
 .select_input:checked+.select_label .border-top {

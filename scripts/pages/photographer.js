@@ -82,7 +82,7 @@ const triTitre = document.querySelector(".titre");
 const close = document.querySelector(".select_closeLabel");
 const open = document.querySelector(".select_label");
 const select = document.querySelector(".select");
-const expand = document.querySelector(".select_expand");
+const expand = document.querySelector(".select_expandLabel");
 
 open.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
@@ -99,6 +99,10 @@ open.addEventListener("keyup", (e) => {
 });
 
 function openExpand() {
+  expand.style.display = "block";
+}
+
+function closeExpand() {
   expand.style.display = "none";
 }
 
@@ -146,16 +150,15 @@ function sorts(medias) {
   triTitre.addEventListener("click", () => titleSelected());
   function titleSelected() {
     customSelect();
-    triPopularite.textContent = "Titre";
-    // triDate.textContent = "Popularité";
-    triTitre.textContent = "Popularité";
+    triPopularite.textContent = "Popularité";
+    triDate.textContent = "Date";
+    triTitre.textContent = "Titre";
     sortTitre(medias);
     const galerie = document.querySelector(".galerie");
     galerie.innerHTML = "";
     displayMedia(medias);
     lightbox(medias);
     bannerLikes(medias);
-    console.log("test");
   }
   triTitre.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
@@ -182,7 +185,7 @@ function sorts(medias) {
   });
   triPopularite.addEventListener("click", () => popularSelected());
   function popularSelected() {
-    // customSelect();
+    customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
     triTitre.textContent = "Titre";
