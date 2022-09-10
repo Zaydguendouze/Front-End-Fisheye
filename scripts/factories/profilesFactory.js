@@ -58,7 +58,7 @@ export function galerieCard(data) {
     if (image) {
       return ` 
             
-                <img title="${title}" id="${id}" src="assets/images/${image}"  alt="${title}" tabindex="0"> 
+                <img title="${title}" id="${id}" src="assets/images/${image}" width="400px"  alt="${title}" tabindex="0"> 
             
             <div class="infos">
                 <p class="title" aria-label="${title}">${title}</p>
