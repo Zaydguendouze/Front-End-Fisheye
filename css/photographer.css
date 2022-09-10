@@ -458,7 +458,7 @@ article video {
   border: none;
 }
 
-#caption {
+.caption {
   height: 1%;
   width: 100%;
   display: flex;

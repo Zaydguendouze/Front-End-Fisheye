@@ -80,15 +80,16 @@ const triPopularite = document.querySelector(".popularite");
 const triDate = document.querySelector(".date");
 const triTitre = document.querySelector(".titre");
 const select = document.querySelector(".select");
+const lightboxContain = document.querySelectorAll(
+  ".imageMedia, .videoMedia, .caption"
+);
+const galerie = document.querySelector(".galerie");
 
 function customSelect() {
   select.style.marginBottom = "140px";
 }
 
-function closeLightboxWithSort() {
-  const lightboxContainer = document.getElementById("lightbox");
-  lightboxContainer.removeAttribute("img", "video", "p");
-}
+console.log(lightboxContain);
 
 function sortPopular(medias) {
   medias.sort((a, b) => {
@@ -129,64 +130,56 @@ function sortTitre(medias) {
 function sorts(medias) {
   triTitre.addEventListener("click", () => titleSelected());
   function titleSelected() {
-    if (dateSelected() || popularSelected()) {
-      closeLightboxWithSort();
-    }
     customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
     triTitre.textContent = "Titre";
     sortTitre(medias);
-    const galerie = document.querySelector(".galerie");
     galerie.innerHTML = "";
+    console.log("medias", medias);
     displayMedia(medias);
     lightbox(medias);
     bannerLikes(medias);
   }
+
   triTitre.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
       titleSelected();
     }
   });
+
   triDate.addEventListener("click", () => dateSelected());
   function dateSelected() {
-    if (titleSelected() || popularSelected()) {
-      closeLightboxWithSort();
-    }
-    closeLightboxWithSort();
     customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
     triTitre.textContent = "Titre";
     sortDate(medias);
-    const galerie = document.querySelector(".galerie");
     galerie.innerHTML = "";
     displayMedia(medias);
     lightbox(medias);
     bannerLikes(medias);
   }
+
   triDate.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
       dateSelected();
     }
   });
+
   triPopularite.addEventListener("click", () => popularSelected());
   function popularSelected() {
-    if (dateSelected() || titleSelected()) {
-      closeLightboxWithSort();
-    }
-    closeLightboxWithSort();
     customSelect();
     triPopularite.textContent = "Popularité";
     triDate.textContent = "Date";
     triTitre.textContent = "Titre";
     sortPopular(medias);
-    const galerie = document.querySelector(".galerie");
     galerie.innerHTML = "";
     displayMedia(medias);
     lightbox(medias);
     bannerLikes(medias);
   }
+
   triPopularite.addEventListener("keyup", (e) => {
     if (e.key === "Enter") {
       popularSelected();

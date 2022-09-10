@@ -3,9 +3,15 @@ export function lightbox(data) {
   const nextBtn = document.querySelector(".lightbox_next");
   const prevBtn = document.querySelector(".lightbox_prev");
 
+  const triPopularite = document.querySelector(".popularite");
+  const triDate = document.querySelector(".date");
+  const triTitre = document.querySelector(".titre");
+
   const medias = document.querySelectorAll(
     ".galerie article img, article video"
   );
+  console.log("data", data);
+  console.log("medias", medias);
 
   let img = document.createElement("img");
   let txt = document.createElement("p");
@@ -13,6 +19,8 @@ export function lightbox(data) {
 
   let src = "";
   let title = "";
+
+  console.log("clicked lightbox");
 
   medias.forEach((media) => {
     const openLightbox = () => {
@@ -26,10 +34,12 @@ export function lightbox(data) {
       src = media.src;
       title = media.title;
 
+      console.log("clicked open lightbox");
+
       if (media.src.includes("mp4")) {
         vdo.src = src;
 
-        vdo.setAttribute("id", "videoId");
+        vdo.setAttribute("class", "videoMedia");
         vdo.autoplay = true;
         vdo.controls = true;
 
@@ -37,37 +47,41 @@ export function lightbox(data) {
 
         txt.innerText = title;
 
-        txt.setAttribute("id", "caption");
+        txt.setAttribute("class", "caption");
 
         lightboxContainer.appendChild(txt);
 
         closeBtn.onclick = function () {
-          closeLightboxWithVdo();
+          const videoMedia = document.querySelector(".videoMedia");
+          const caption = document.querySelector(".caption");
+          videoMedia.remove();
+          caption.remove();
         };
       } else {
         img.src = src;
 
-        img.setAttribute("id", "imageId");
-        img.setAttribute("class", "image");
+        img.setAttribute("class", "imageMedia");
 
         lightboxContainer.appendChild(img);
 
         txt.innerText = title;
 
-        txt.setAttribute("id", "caption");
+        txt.setAttribute("class", "caption");
 
         lightboxContainer.appendChild(txt);
 
         closeBtn.onclick = function () {
-          closeLightboxWithImg();
+          const imageMedia = document.querySelector(".imageMedia");
+          const caption = document.querySelector(".caption");
+          imageMedia.remove();
+          caption.remove();
         };
       }
 
       const next = () => {
-        console.log("-----");
-        const image = document.getElementById("imageId");
-        const text = document.getElementById("caption");
-        const video = document.getElementById("videoId");
+        const image = document.querySelector("imageMedia");
+        const text = document.querySelector("caption");
+        const video = document.querySelector("videoMedia");
 
         if (index === medias.length - 1) {
           index = 0;
@@ -78,16 +92,18 @@ export function lightbox(data) {
         src = medias[index].src;
         title = medias[index].title;
 
+        console.log("clicked next");
+
         if (medias[index].src.includes("mp4")) {
           lightboxContainer.appendChild(vdo);
           vdo.src = src;
           vdo.autoplay = false;
           vdo.controls = true;
           lightboxContainer.appendChild(txt);
-          text.innerText = title;
-        }
-        if (medias[index].src.includes("jpg")) {
+          txt.innerText = title;
+        } else if (medias[index].src.includes("jpg")) {
           vdo.remove(video);
+          txt.remove(text);
         }
 
         if (medias[index].src.includes("jpg")) {
@@ -95,13 +111,17 @@ export function lightbox(data) {
           img.src = src;
           lightboxContainer.appendChild(txt);
           txt.innerText = title;
-        }
-        if (medias[index].src.includes("mp4")) {
+        } else if (medias[index].src.includes("mp4")) {
           img.remove(image);
+          txt.remove(text);
         }
       };
 
       const prev = () => {
+        const image = document.querySelector("imageMedia");
+        const text = document.querySelector("caption");
+        const video = document.querySelector("videoMedia");
+
         if (index === 0) {
           index = medias.length - 1;
         } else {
@@ -110,20 +130,16 @@ export function lightbox(data) {
         src = medias[index].src;
         title = medias[index].title;
 
-        let image = document.getElementById("imageId");
-        let text = document.getElementById("caption");
-        let video = document.getElementById("videoId");
-
         if (medias[index].src.includes("mp4")) {
           lightboxContainer.appendChild(vdo);
           vdo.src = src;
           vdo.autoplay = false;
           vdo.controls = true;
           lightboxContainer.appendChild(txt);
-          text.innerText = title;
-        }
-        if (medias[index].src.includes("jpg")) {
+          txt.innerText = title;
+        } else if (medias[index].src.includes("jpg")) {
           vdo.remove(video);
+          txt.remove(text);
         }
 
         if (medias[index].src.includes("jpg")) {
@@ -131,9 +147,9 @@ export function lightbox(data) {
           img.src = src;
           lightboxContainer.appendChild(txt);
           txt.innerText = title;
-        }
-        if (medias[index].src.includes("mp4")) {
+        } else if (medias[index].src.includes("mp4")) {
           img.remove(image);
+          txt.remove(text);
         }
       };
 
@@ -156,8 +172,6 @@ export function lightbox(data) {
       });
     };
 
-    nextBtn.addEventListener("click", nextBtn);
-
     media.addEventListener("click", openLightbox);
     media.addEventListener("keyup", (e) => {
       if (e.key === "Enter") {
@@ -165,33 +179,6 @@ export function lightbox(data) {
       }
     });
   });
-
-  function closeLightboxWithImg() {
-    lightboxContainer.classList.remove("active");
-    removeImgDom("imageId");
-    removeTextDom("caption");
-  }
-
-  function closeLightboxWithVdo() {
-    lightboxContainer.classList.remove("active");
-    removeVideoDom("videoId");
-    removeTextDom("caption");
-  }
-
-  function removeImgDom(imageDom) {
-    var imageDom = document.getElementById("imageId");
-    imageDom.parentNode.removeChild(imageDom);
-  }
-
-  function removeVideoDom(videoDom) {
-    var videoDom = document.getElementById("videoId");
-    videoDom.parentNode.removeChild(videoDom);
-  }
-
-  function removeTextDom(lightboxText) {
-    var lightboxText = document.getElementById("caption");
-    lightboxText.parentNode.removeChild(lightboxText);
-  }
 }
 
 const closeBtn = document.querySelector(".lightbox_close");
