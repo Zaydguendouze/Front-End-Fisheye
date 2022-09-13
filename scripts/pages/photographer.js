@@ -89,8 +89,6 @@ function customSelect() {
   select.style.marginBottom = "140px";
 }
 
-console.log(lightboxContain);
-
 function sortPopular(medias) {
   medias.sort((a, b) => {
     if (a.likes < b.likes) {
@@ -131,12 +129,8 @@ function sorts(medias) {
   triTitre.addEventListener("click", () => titleSelected());
   function titleSelected() {
     customSelect();
-    triPopularite.textContent = "Popularité";
-    triDate.textContent = "Date";
-    triTitre.textContent = "Titre";
     sortTitre(medias);
     galerie.innerHTML = "";
-    console.log("medias", medias);
     displayMedia(medias);
     lightbox(medias);
     bannerLikes(medias);
@@ -151,9 +145,6 @@ function sorts(medias) {
   triDate.addEventListener("click", () => dateSelected());
   function dateSelected() {
     customSelect();
-    triPopularite.textContent = "Popularité";
-    triDate.textContent = "Date";
-    triTitre.textContent = "Titre";
     sortDate(medias);
     galerie.innerHTML = "";
     displayMedia(medias);
@@ -170,9 +161,6 @@ function sorts(medias) {
   triPopularite.addEventListener("click", () => popularSelected());
   function popularSelected() {
     customSelect();
-    triPopularite.textContent = "Popularité";
-    triDate.textContent = "Date";
-    triTitre.textContent = "Titre";
     sortPopular(medias);
     galerie.innerHTML = "";
     displayMedia(medias);
@@ -217,8 +205,6 @@ async function init() {
   lightbox(mediaSelected);
   // Sorts
   sorts(mediaSelected);
-
-  //   console.log(pIdNumber);
 }
 
 init();

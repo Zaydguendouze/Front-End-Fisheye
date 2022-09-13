@@ -9,8 +9,6 @@ export function lightbox(data) {
   const medias = document.querySelectorAll(
     ".galerie article img, article video"
   );
-  console.log("data", data);
-  console.log("medias", medias);
 
   let img = document.createElement("img");
   let txt = document.createElement("p");
@@ -182,6 +180,7 @@ const closeBtn = document.querySelector(".lightbox_close");
 closeBtn.addEventListener("click", () => {
   closeLightbox();
 });
+
 function closeLightbox() {
   const lightboxContainer = document.getElementById("lightbox");
   const imageMedia = document.querySelector(".imageMedia");
