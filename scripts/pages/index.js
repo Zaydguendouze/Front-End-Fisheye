@@ -20,7 +20,7 @@ function displayData(photographers) {
     const photographerModel = photographFactory(photographer);
     // Création des élements dans le DOM
     const userCardDOM = photographerModel.createPhotographeCard();
-    if (photographersSection) photographersSection.appendChild(userCardDOM);
+    photographersSection.appendChild(userCardDOM);
   });
 }
 
