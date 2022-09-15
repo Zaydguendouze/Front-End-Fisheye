@@ -36,19 +36,19 @@
           <li class="select_items">
             <input tabindex="0" aria-label="ouverture" class="select_expand" type="radio" name="customselect"
               id="customselect-opener" />
-            <label aria-label="fermeture" class="select_closeLabel" for="customselect-close"></label>
+            <label class="select_closeLabel" for="customselect-close"></label>
 
             <ul class="select_options">
               <li class="select_option">
                 <input class="select_input" type="radio" name="customselect" id="customselect-date" />
                 <label tabindex="0" class="select_label date" for="customselect-date"><span class="border-top"
-                    aria-label="Filtre par Date" tabindex="0">Date</span></label>
+                    tabindex="0">Date</span></label>
               </li>
 
               <li class="select_option">
                 <input class="select_input" type="radio" name="customselect" id="customselect-titre" />
                 <label tabindex="0" class="select_label titre" for="customselect-titre"><span class="border-top"
-                    aria-label="Filtre par Titre" tabindex="0">Titre</span></label>
+                    tabindex="0">Titre</span></label>
               </li>
 
             </ul>
@@ -73,17 +73,17 @@
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <img class="close" src="assets/icons/close.svg" />
+        <img class="close" src="assets/icons/close.svg" alt="icone de fermeture" />
       </header>
 
       <form id="form">
         <div class="formData">
-          <label for="firstname">Prénom</label><br>
+          <label>Prénom</label><br>
           <input class="text-control" type="text" id="firstName" /><br>
           <div id="firstname-message" class="message"></div>
         </div>
         <div class="formData">
-          <label for="lastname">Nom</label><br>
+          <label>Nom</label><br>
           <input class="text-control" type="text" id="lastName" /><br>
           <div id="lastname-message" class="message"></div>
         </div>
@@ -94,7 +94,7 @@
         </div>
         <div class="formData">
           <label for="message">Message</label><br>
-          <textarea class="text-control" type="text" id="message" /></textarea><br>
+          <textarea class="text-control" id="message"></textarea><br>
           <div id="msg-message" class="message"></div>
         </div>
         <button class="contact_button_submit" type="submit">Envoyer</button>
@@ -105,12 +105,9 @@
 
   <!-- lightbox -->
   <div id="lightbox">
-    <button tabindex="0" aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"
-        tabindex="10"></i></button>
-    <button tabindex="0" aria-label="Précédent"><i class="fa-solid fa-angle-left lightbox_prev"
-        tabindex="10"></i></button>
-    <button tabindex="0" aria-label="Suivant"><i class="fa-solid fa-angle-right lightbox_next"
-        tabindex="10"></i></button>
+    <button tabindex="0" aria-label="Fermer la lightbox"><i class="fa-solid fa-xmark lightbox_close"></i></button>
+    <button tabindex="0" aria-label="Précédent"><i class="fa-solid fa-angle-left lightbox_prev"></i></button>
+    <button tabindex="0" aria-label="Suivant"><i class="fa-solid fa-angle-right lightbox_next"></i></button>
   </div>
 
   <!-- Utils -->
