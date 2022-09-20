@@ -6,15 +6,15 @@ export function PhotographerFactory(data) {
     return `
         <article>
             <a href="photographer.html?id=${id}" aria-label="Accéder à la page du photographe ${name}" tabindex="0">
-                    <img src="assets/photographers/${portrait}" alt="Image du photographe ${name}"
-                    />
-                <h2>${name}</h2>
-                </a>
-                <div class="infos_photographer" aria-label="infos du photographe ${name}">
-                    <h3>${city}, ${country}</h3>
-                    <p>${tagline}</p>
-                    <p>${price}€/jour</p>
-                </div>
+                <img src="assets/photographers/${portrait}" alt="Image du photographe ${name}"
+                 />
+              <h2>${name}</h2>
+            </a>
+            <div class="infos_photographer" aria-label="infos du photographe ${name}">
+              <h3>${city}, ${country}</h3>
+                <p>${tagline}</p>
+                <p>${price}€/jour</p>
+            </div>
         </article>
            `;
   }
@@ -25,17 +25,17 @@ export function PhotographerFactory(data) {
     return `
     <article>  
     <div class="profile">
-            <div class="infos_profil" tabindex="0">
-            <h1>${name}</h1>
-            </div>
-            <div class="infos_profil_details" tabindex="0">
-            <h2>${city}, ${country}</h2>
+       <div class="infos_profil" tabindex="0">
+          <h1>${name}</h1>
+        </div>
+        <div class="infos_profil_details" tabindex="0">
+          <h2>${city}, ${country}</h2>
             <p class="tagline">${tagline}</p>
-            </div>
-            </div>
-            <button class="contact_button" tabindex="0" id="contact_btn" aria-label="Formulaire de contact">Contactez Moi</button>
-            <img src="assets/photographers/${portrait}" alt="portrait du photographe ${name}" tabindex="0">
-            </article>
+        </div>
+      </div>
+        <button class="contact_button" tabindex="0" id="contact_btn" aria-label="Formulaire de contact">Contactez Moi</button>
+          <img src="assets/photographers/${portrait}" alt="portrait du photographe ${name}" tabindex="0">
+      </article>
             `;
   }
 
@@ -53,7 +53,7 @@ export function PhotographerFactory(data) {
                 <p class="title" aria-label="${title}">${title}</p>
                 <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart media-liked" tabindex="0"></i></p>
             </div>
-            </article>
+      </article>
             `;
     } else if (video) {
       return `<article class="galerie" data-id="${id}">
@@ -63,7 +63,7 @@ export function PhotographerFactory(data) {
                 <p class="title"  aria-label="${title}">${title}</p>
                 <p aria-label="${likes} coeur">${likes}<i class="fas fa-heart media-liked" tabindex="0"></i></p>
             </div>
-            </article>
+      </article>
             `;
     }
 
