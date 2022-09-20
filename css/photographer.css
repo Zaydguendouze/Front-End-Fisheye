@@ -356,7 +356,7 @@ article video {
 .modal {
   border-radius: 5px;
   background-color: #DB8876;
-  width: 30%;
+  width: 25%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -499,14 +499,14 @@ form div {
 
 form input {
     width: 100%;
-    height: 50px;
+    height: 35px;
     border: none;
     border-radius: 5px;
 }
 
 textarea {
   width: 100%;
-  height: 100px;
+  height: 60px;
   border-radius: 5px;
   border: none;
 }
