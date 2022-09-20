@@ -347,10 +347,15 @@ article video {
     display: none;
 }
 
+#photographeName {
+  font-size: 25px;
+  margin: 0;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #DB8876;
-  width: 40%;
+  width: 30%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -489,7 +494,6 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 10px;
 }
 
 form input {

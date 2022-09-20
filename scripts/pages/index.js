@@ -1,4 +1,4 @@
-import { photographFactory } from "../factories/photographersFactory.js";
+import { PhotographerFactory } from "../factories/photographerFactory.js";
 
 async function getPhotographers() {
   // Récupèration des données Json et donc réponse
@@ -17,10 +17,10 @@ function displayData(photographers) {
 
   photographers.forEach((photographer) => {
     // Appel de la class PhotographerFactory()
-    const photographerModel = photographFactory(photographer);
+    const photographerModel = PhotographerFactory(photographer);
     // Création des élements dans le DOM
-    const userCardDOM = photographerModel.createPhotographeCard();
-    photographersSection.appendChild(userCardDOM);
+    const userCardDOM = photographerModel.createPhotographerCardDOM();
+    photographersSection?.insertAdjacentHTML("beforeend", userCardDOM);
   });
 }
 

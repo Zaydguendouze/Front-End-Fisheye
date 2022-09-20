@@ -1,6 +1,6 @@
-import { profile, galerieCard } from "../factories/profilesFactory.js";
-import { bannerCardPrice, bannerLikes } from "../factories/bannerAndLikes.js";
-import { lightbox } from "../factories/lightbox.js";
+import { PhotographerFactory } from "../factories/photographerFactory.js";
+import { bannerCardPrice, bannerLikes } from "../components/bannerAndLikes.js";
+import { lightbox } from "../components/lightbox.js";
 
 // Fonction pour récupérer les données Json
 // On récupère les données des photographes et les médias
@@ -29,10 +29,6 @@ async function getPhotographersById(id) {
     return media.photographerId === id;
   });
 
-  //   console.log(mediaSelected);
-
-  //   console.log(profileSelected)
-
   return { profileSelected, mediaSelected };
 }
 
@@ -41,25 +37,27 @@ function displayDataProfile(photographer) {
   // Sélection du querySelector pour afficher les données
   const photographersSection = document.querySelector(".photograph-header");
 
-  const photographerModel = profile(photographer);
+  const photographerModel = PhotographerFactory(photographer);
   // Création des élements dans le DOM
-  const userCardDOM = photographerModel.createProfilePage();
-  if (photographersSection) photographersSection.appendChild(userCardDOM);
+  const userCardDOM = photographerModel.createProfileCardDOM();
+  if (photographersSection)
+    photographersSection.insertAdjacentHTML("beforeend", userCardDOM);
 
   // Bouton pour l'ouverture du formulaire
   const btnForm = document.getElementById("contact_btn");
-  if (btnForm)
-    btnForm.addEventListener("click", () => {
-      launchModal();
-    });
+
+  btnForm.addEventListener("click", () => {
+    launchModal();
+  });
 
   function launchModal() {
     const myModal = document.getElementById("contact_modal");
 
-    if (myModal) {
-      myModal.style.display = "block";
-      myModal.style.backgroundColor = "rgba(255,255,255,0.8)";
-    }
+    myModal.style.display = "block";
+    myModal.style.backgroundColor = "rgba(255,255,255,0.8)";
+
+    const name = document.getElementById("photographeName");
+    name.textContent = document.querySelector("h1").textContent;
   }
 }
 
@@ -69,10 +67,10 @@ function displayMedia(medias) {
 
   // Pour chaque média, afficher suivant la fonction galerieCard
   medias.forEach((media) => {
-    const galerieModel = galerieCard(media);
-    const galerieDOM = galerieModel.createGalerie();
+    const galerieModel = PhotographerFactory(media);
+    const galerieDOM = galerieModel.createImgOrVideoDOM();
 
-    if (galerie) galerie.appendChild(galerieDOM);
+    if (galerie) galerie.insertAdjacentHTML("beforeend", galerieDOM);
   });
 }
 

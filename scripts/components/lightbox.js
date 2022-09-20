@@ -1,4 +1,4 @@
-import { cleanLightBox } from "../utils/clean.js";
+import { cleanLightBox } from "../utils/index.js";
 
 export function lightbox(data) {
   const lightboxContainer = document.getElementById("lightbox");
