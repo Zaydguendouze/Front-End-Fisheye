@@ -15,7 +15,7 @@
 
 <body>
   <header>
-    <a href="./index.html" aria-label="Fisheye, retour à la page d'accueil">
+    <a href="./index.html" aria-labelledby="Fisheye, retour à la page d'accueil">
       <img src="assets/images/logo.png" class="logo" alt="Logo du site Fisheye" />
     </a>
   </header>
@@ -25,29 +25,29 @@
       </div>
       <div class="custom-select">
         <ul class="select">
-          <li aria-labelledby="Trier par" class="tri">Trier par</li>
+          <li aria-label="Trier par" class="tri">Trier par</li>
           <li>
-            <input aria-labelledby="bouton de fermeture" class="select_close popularite" type="radio"
-              name="customselect" id="customselect-close">
-            <label for="customselect-close" tabindex="0" aria-labelledby="Trier par popularité"
+            <input aria-label="bouton de fermeture" class="select_close popularite" type="radio" name="customselect"
+              id="customselect-close" value="">
+            <label tabindex="0" aria-label="Trier par popularité"
               class="select_label select_label-placeholder">Popularité</label>
           </li>
 
           <li class="select_items">
-            <input aria-labelledby="ouverture" class="select_expand" type="radio" name="customselect"
-              id="customselect-opener">
-            <label aria-labelledby="bouton de fermeture" class="select_closeLabel" for="customselect-close"></label>
+            <input aria-label="ouverture" class="select_expand" type="radio" name="customselect"
+              id="customselect-opener" value="">
+            <label aria-label="bouton de fermeture" class="select_closeLabel" for="customselect-close"></label>
 
             <ul class="select_options">
               <li class="select_option">
                 <input class="select_input" type="text" name="customselect" id="customselect-date">
-                <label class="select_label date" for="customselect-date"><span aria-labelledby="Trier par date"
+                <label class="select_label date" for="customselect-date"><span aria-label="Trier par date"
                     class="border-top">Date</span></label>
               </li>
 
               <li class="select_option">
                 <input class="select_input" type="text" name="customselect" id="customselect-titre">
-                <label class="select_label titre" for="customselect-titre"><span aria-labelledby="Trier par titre"
+                <label class="select_label titre" for="customselect-titre"><span aria-label="Trier par titre"
                     class="border-top">Titre</span></label>
               </li>
 
