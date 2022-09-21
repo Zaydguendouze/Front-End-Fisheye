@@ -25,36 +25,35 @@
       </div>
       <div class="custom-select">
         <ul class="select">
-          <li aria-label="Trier par" class="tri">Trier par</li>
+          <li class="tri">Trier par</li>
           <li>
             <input aria-label="bouton de fermeture" class="select_close popularite" type="radio" name="customselect"
-              id="customselect-close" value="">
+              id="customselect-close">
             <label tabindex="0" aria-label="Trier par popularité"
               class="select_label select_label-placeholder">Popularité</label>
           </li>
 
           <li class="select_items">
             <input aria-label="ouverture" class="select_expand" type="radio" name="customselect"
-              id="customselect-opener" value="">
-            <label aria-label="bouton de fermeture" class="select_closeLabel" for="customselect-close"></label>
+              id="customselect-opener">
+            <label aria-label="bouton de fermeture" class="select_closeLabel" for="customselect-close"
+              aria-placeholder=""></label>
 
             <ul class="select_options">
               <li class="select_option">
                 <input class="select_input" type="text" name="customselect" id="customselect-date">
-                <label class="select_label date" for="customselect-date"><span aria-label="Trier par date"
-                    class="border-top">Date</span></label>
+                <label class="select_label date" for="customselect-date"><span class="border-top">Date</span></label>
               </li>
 
               <li class="select_option">
                 <input class="select_input" type="text" name="customselect" id="customselect-titre">
-                <label class="select_label titre" for="customselect-titre"><span aria-label="Trier par titre"
-                    class="border-top">Titre</span></label>
+                <label class="select_label titre" for="customselect-titre"><span class="border-top">Titre</span></label>
               </li>
 
             </ul>
 
-            <label class="select_expandLabel" for="customselect-opener"
-              aria-label="Choisir le tri de la galerie"></label>
+            <label class="select_expandLabel" for="customselect-opener" aria-label="Choisir le tri de la galerie"
+              aria-placeholder=""></label>
           </li>
         </ul>
       </div>
