@@ -5,7 +5,6 @@ async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   // Extraction des données
   const data = await response.json();
-  // console.log(data.photographers)
 
   // Affichage des données extraites
   return { photographers: data.photographers };

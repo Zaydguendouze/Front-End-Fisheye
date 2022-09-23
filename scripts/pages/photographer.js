@@ -7,8 +7,6 @@ import { lightbox } from "../components/lightbox.js";
 async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const data = await response.json();
-  // console.log(data.photographers)
-  // console.log(data.media)
 
   // On retourne les propriétés à appeler dans la fonction suivante
   return { profiles: data.photographers, medias: data.media };
@@ -58,6 +56,14 @@ function displayDataProfile(photographer) {
 
     const name = document.getElementById("photographeName");
     name.textContent = document.querySelector("h1").textContent;
+
+    // Focus
+    const focusableEls = myModal.querySelectorAll(
+      'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled]),img:not([disabled])'
+    );
+    // Focus du premier élement
+    const firstFocusableEl = focusableEls[0];
+    firstFocusableEl.focus();
   }
 }
 
@@ -70,18 +76,23 @@ function displayMedia(medias) {
     const galerieModel = PhotographerFactory(media);
     const galerieDOM = galerieModel.createImgOrVideoDOM();
 
-    if (galerie) galerie.insertAdjacentHTML("beforeend", galerieDOM);
+    galerie.insertAdjacentHTML("beforeend", galerieDOM);
   });
 }
 
 const triPopularite = document.querySelector(".popularite");
 const triDate = document.querySelector(".date");
 const triTitre = document.querySelector(".titre");
-const select = document.querySelector(".select");
-const lightboxContain = document.querySelectorAll(
-  ".imageMedia, .videoMedia, .caption"
-);
+const select = document.querySelector(".select_expand");
+const label = document.querySelector(".date");
+
 const galerie = document.querySelector(".galerie");
+
+select.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    label.style.display = "none";
+  }
+});
 
 function customSelect() {
   select.style.marginBottom = "140px";

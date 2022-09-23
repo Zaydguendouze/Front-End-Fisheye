@@ -27,11 +27,9 @@ export function bannerLikes(data) {
   data.map((data) => {
     // += pour concatener et donc additionner tous les likes
     allLikes += data.likes;
-    // console.log(data.likes);
 
     return allLikes;
   });
-  // console.log(allLikes);
   const likes = document.querySelector(".likes");
 
   if (likes)
@@ -53,7 +51,6 @@ export function bannerLikes(data) {
 
     // La fonction va ajouter 1 like au total à chaque clique
     function addLikes() {
-      console.log(hearts);
       // Si la class media-liked est détectée on ajoute 1 like
       // Elle va aussi ajouter ++ au text qui là est le nombre de likes du média
       if (element.classList.contains("media-liked")) {
@@ -61,7 +58,6 @@ export function bannerLikes(data) {
         likes.innerHTML = `<div class="details" tabindex="0">
                             <p>${allLikes} <i class="fas fa-heart"></i></p>
                          </div>`;
-        console.log(element.previousSibling);
         // previousSibling
         element.previousSibling.textContent++;
 
