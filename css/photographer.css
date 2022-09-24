@@ -467,12 +467,12 @@ article video {
   height: 1%;
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   background-color: white;
   color: #901C1C;
-  font-size: 40px;
+  font-size: 25px;
+  margin-left: 280px;
 }
 
 /* LIGHTBOX */
