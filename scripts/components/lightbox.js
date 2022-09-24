@@ -29,6 +29,14 @@ export function lightbox(data) {
       src = media.src;
       title = media.title;
 
+      // Focus
+      const focusableEls = lightboxContainer.querySelectorAll(
+        'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled]),img:not([disabled])'
+      );
+      // Focus du premier élement
+      const firstFocusableEl = focusableEls[0];
+      firstFocusableEl.focus();
+
       if (media.src.includes("mp4")) {
         vdo.src = src;
 
@@ -157,6 +165,18 @@ export function lightbox(data) {
       nextBtn.addEventListener("click", next);
       prevBtn.addEventListener("click", prev);
 
+      nextBtn.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+          next();
+        }
+      });
+
+      prevBtn.addEventListener("keyup", (e) => {
+        if (e.keyCode === 13) {
+          prev();
+        }
+      });
+
       document.addEventListener("keyup", (e) => {
         if (e.key === "ArrowLeft") {
           prev();
@@ -169,7 +189,7 @@ export function lightbox(data) {
 
     media.addEventListener("click", openLightbox);
     media.addEventListener("keyup", (e) => {
-      if (e.key === "Enter") {
+      if (e.keyCode === 13) {
         openLightbox();
       }
     });
@@ -180,8 +200,14 @@ const closeBtn = document.querySelector(".lightbox_close");
 closeBtn.addEventListener("click", () => {
   closeLightbox();
 });
+closeBtn.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    closeLightbox();
+  }
+});
 
 function closeLightbox() {
+  const closeBtn = document.querySelector(".lightbox_close");
   const lightboxContainer = document.getElementById("lightbox");
   const imageMedia = document.querySelector(".imageMedia");
   const videoMedia = document.querySelector(".videoMedia");

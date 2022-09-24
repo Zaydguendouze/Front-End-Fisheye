@@ -36,7 +36,7 @@
           <li class="select_items">
             <input aria-label="ouverture du tri" class="select_expand" type="radio" name="customselect"
               id="customselect-opener">
-            <label aria-label="bouton de fermeture" class="select_closeLabel" for="customselect-close"></label>
+            <label class="select_closeLabel visuallyhidden" for="customselect-close">Ouverture</label>
 
             <ul class="select_options">
               <li class="select_option">
@@ -53,8 +53,8 @@
 
             </ul>
 
-            <label class="select_expandLabel" for="customselect-opener"
-              aria-label="Choisir le tri de la galerie"></label>
+            <label class="select_expandLabel visuallyhidden" for="customselect-opener"
+              aria-label="Choisir le tri de la galerie">Fermeture</label>
           </li>
         </ul>
       </div>
@@ -109,8 +109,8 @@
 
   <!-- lightbox -->
   <div id="lightbox">
-    <button aria-label="Fermer la lightbox"><strong tabindex="0"
-        class="fa-solid fa-xmark lightbox_close"></strong></button>
+    <button aria-label="Fermer la lightbox"><strong class="fa-solid fa-xmark lightbox_close"
+        tabindex="0"></strong></button>
     <button aria-label="Précédent"><strong tabindex="0" class="fa-solid fa-angle-left lightbox_prev"></strong></button>
     <button aria-label="Suivant"><strong tabindex="0" class="fa-solid fa-angle-right lightbox_next"></strong></button>
   </div>
