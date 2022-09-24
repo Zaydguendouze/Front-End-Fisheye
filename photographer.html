@@ -34,7 +34,7 @@
           </li>
 
           <li class="select_items">
-            <input aria-label="ouverture" class="select_expand" type="radio" name="customselect"
+            <input aria-label="ouverture du tri" class="select_expand" type="radio" name="customselect"
               id="customselect-opener">
             <label aria-label="bouton de fermeture" class="select_closeLabel" for="customselect-close"></label>
 
@@ -71,7 +71,7 @@
 
   <div id="contact_modal">
 
-    <div class="modal" aria-hidden="true">
+    <div class="modal" aria-hidden="true" role="dialog">
       <header>
         <h2>Contactez-moi</h2>
         <p id="photographeName"></p>
@@ -109,10 +109,10 @@
 
   <!-- lightbox -->
   <div id="lightbox">
-    <button tabindex="0" aria-label="Fermer la lightbox"><strong
+    <button aria-label="Fermer la lightbox"><strong tabindex="0"
         class="fa-solid fa-xmark lightbox_close"></strong></button>
-    <button tabindex="0" aria-label="Précédent"><strong class="fa-solid fa-angle-left lightbox_prev"></strong></button>
-    <button tabindex="0" aria-label="Suivant"><strong class="fa-solid fa-angle-right lightbox_next"></strong></button>
+    <button aria-label="Précédent"><strong tabindex="0" class="fa-solid fa-angle-left lightbox_prev"></strong></button>
+    <button aria-label="Suivant"><strong tabindex="0" class="fa-solid fa-angle-right lightbox_next"></strong></button>
   </div>
 
   <!-- Utils -->
