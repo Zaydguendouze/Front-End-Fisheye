@@ -57,7 +57,7 @@ export function PhotographerFactory(data) {
             `;
     } else if (video) {
       return `<article class="galerie" data-id="${id}">
-      <video title="${title}" id="${id}" controls src="assets/images/${video}" alt="${title}"></video tabindex="0">
+      <video title="${title}" id="${id}" src="assets/images/${video}" alt="${title}"></video tabindex="0">
 
             <div class="infos">
                 <p class="title"  aria-label="${title}">${title}</p>

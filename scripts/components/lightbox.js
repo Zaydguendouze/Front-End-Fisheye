@@ -33,7 +33,7 @@ export function lightbox(data) {
         vdo.src = src;
 
         vdo.setAttribute("class", "videoMedia");
-        vdo.autoplay = true;
+        vdo.autoplay = false;
         vdo.controls = true;
 
         lightboxContainer.appendChild(vdo);
