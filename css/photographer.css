@@ -399,7 +399,7 @@ article video {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 70%;
   height: 100%;
   background-color: rgba(255,255,255,1);
   display: none;
@@ -413,14 +413,16 @@ article video {
 }
 
 #lightbox img {
-  max-width: 90%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 90%;
   padding: 4px;
   border: 2px solid white;
+  width: 60%;
+  height: 100%;
 }
 
 #lightbox video {
-  max-width: 90%;
+  max-width: 80%;
   max-height: 80%;
   padding: 4px;
   border: 2px solid white;
@@ -472,7 +474,7 @@ article video {
   background-color: white;
   color: #901C1C;
   font-size: 25px;
-  margin-left: 280px;
+  margin-left: 530px;
 }
 
 /* LIGHTBOX */
